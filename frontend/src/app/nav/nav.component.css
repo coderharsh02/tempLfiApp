@@ -1,0 +1,16 @@
+.dropdown-toggle, .dropdown-item {
+    cursor: pointer;
+}
+
+ul.dropdown-menu.show {
+    margin-top: 1em;
+    margin-left: 9em;
+}
+
+#navbarSupportedContent {
+    text-align: center;
+}
+
+.navbar-brand {
+    font: 2em 'Satisfy', sans-serif;
+}

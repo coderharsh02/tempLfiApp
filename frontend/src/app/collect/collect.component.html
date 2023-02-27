@@ -1,0 +1,80 @@
+<h4>Donations</h4>
+
+<!-- <div class="columns">
+    <div class="column col-12">
+        <div id="eventArea">
+            {{ clicked }}
+        </div>
+    </div>
+</div> -->
+<!-- <table class="table" *ngIf="donations?.length > 0">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Donar Name</th>
+            <th scope="col">No Of Meals</th>
+            <th scope="col">Pincode</th>
+            <th scope="col">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let donation of donations; let i = index">
+            <th scope="row"> {{i + 1}} </th>
+            <td>{{donation.donatedBy.name}}</td>
+            <td>{{donation.noOfMeals}}</td>
+            <td>{{donation.donatedBy.pincode}}</td>
+            <td>{{donation.status}}</td>
+        </tr>
+    </tbody>
+</table> -->
+
+<!-- <ngx-table [configuration]="configuration" [data]="donations" [columns]="columns" (event)="eventEmitted($event)">
+    
+</ngx-table> -->
+
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia"  #input />
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource" matSort>
+  <!-- Position Column -->
+  <ng-container matColumnDef="donar-name">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Donor Name</th>
+    <td mat-cell *matCellDef="let element">{{ element.donorName }}</td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="no-of-meals">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>No Of People Served</th>
+    <td mat-cell *matCellDef="let element">{{ element.noOfMeals }}</td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="donor-pincode">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Pincode</th>
+    <td mat-cell *matCellDef="let element">{{ element.pincode }}</td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="status">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+    <td mat-cell *matCellDef="let element">
+      <button class="btn mb-1n {{ element.status }}" (click)="eventEmitted(element)" type="button">{{ element.status }}</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+  <tr class="mat-row" *matNoDataRow>
+    <td class="mat-cell" colspan="4">
+      No data matching the filter "{{ input.value }}"
+    </td>
+  </tr>
+</table>
+
+<mat-paginator
+  [pageSizeOptions]="[5, 10, 25, 100]"
+  aria-label="Select page of users"
+></mat-paginator>

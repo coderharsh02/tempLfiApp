@@ -1,0 +1,77 @@
+<div class="container">
+  <div style="text-align: center">
+    <h1>Lets do the needfull for the society</h1>
+    <p class="lead">
+      Come on in to donate or collect food for the needy ... all you need to do is sign up!
+    </p>
+
+    <div class="text-center" *ngIf="!(accountService.currentUser$ | async)">
+      <button routerLink="/register" class="btn btn-success btn-lg me-2">
+        Register
+      </button>
+      <button class="btn btn-primary btn-info btn-lg">Learn more</button>
+    </div>
+
+    <div class="text-center" *ngIf="(accountService.currentUser$ | async)">
+      <a routerLink="/donate" class="btn btn-success btn-lg me-2">
+        Donate
+      </a>
+      <a routerLink="/collect" class="btn btn-primary btn-info btn-lg">Collect</a>
+    </div>
+
+    <!-- Top donors section -->
+    <div class="top-donors">
+      <h2>Top Donors</h2>
+      <div class="top-donor-row">
+        <div class="top-donor">
+          <img src="https://randomuser.me/api/portraits/women/3.jpg" alt="Donor 1" />
+          <h2>Donor 1</h2>
+          <p>Donated food to 50 People</p>
+        </div>
+        <div class="top-donor">
+          <img src="https://randomuser.me/api/portraits/men/23.jpg" alt="Donor 2" />
+          <h2>Donor 2</h2>
+          <p>Donated food to 30 People</p>
+        </div>
+        <div class="top-donor">
+          <img src="https://randomuser.me/api/portraits/men/43.jpg" alt="Donor 3" />
+          <h2>Donor 3</h2>
+          <p>Donated food to 20 People</p>
+        </div>
+      </div>
+    </div>
+    <!-- Top collectors section -->
+    <div class="top-collectors">
+      <h2>Top Collectors</h2>
+      <div class="top-collector-row">
+        <div class="top-collector">
+          <img src="https://randomuser.me/api/portraits/men/13.jpg" alt="Collector 1" />
+          <h2>Collector 1</h2>
+          <p>Served food to 40 People</p>
+        </div>
+        <div class="top-collector">
+          <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="Collector 2" />
+          <h2>Collector 2</h2>
+          <p>Served food to 25 People</p>
+        </div>
+        <div class="top-collector">
+          <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Collector 3" />
+          <h2>Collector 3</h2>
+          <p>Served food to 15 People</p>
+        </div>
+      </div>
+    </div>
+    <!-- About us section -->
+    <div class="about-us">
+      <h2>About Us</h2>
+      <p>
+        LetsFeedIndia is a non-profit organization that aims to reduce food waste
+        and fight hunger in India. We connect donors with food collectors to
+        ensure that excess food is distributed to those in need. Our platform is
+        easy to use and we are committed to providing a safe and reliable service
+        to all our users.
+      </p>
+    </div>
+
+  </div>
+</div>

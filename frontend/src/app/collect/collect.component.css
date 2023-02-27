@@ -1,0 +1,17 @@
+.Donated {
+    background-color: red;
+    color: white;
+    min-width: 7em;
+}
+
+.Collected {
+    background-color: orange;
+    color: white;
+    min-width: 7em;
+}
+
+.Available {
+    background-color: green;
+    color: white;
+    min-width: 7em;
+}
