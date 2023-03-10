@@ -8,7 +8,7 @@ import { MembersService } from 'src/app/_services/members.service';
   styleUrls: ['./member-list.component.css']
 })
 export class MemberListComponent implements OnInit {
-  members: UserDetail[] = [];
+  members: any[] = [];
 
   constructor(private memberService: MembersService) { }
 
@@ -17,7 +17,7 @@ export class MemberListComponent implements OnInit {
   }
 
   loadMembers() {
-    this.memberService.getMembers().subscribe({
+    this.memberService.getFullDetails().subscribe({
       next: members => this.members = members
     })
   }

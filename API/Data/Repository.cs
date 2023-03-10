@@ -141,6 +141,14 @@ namespace API.Data
         // Takes donorId and Return List of DonationDto that have same donorId (DonatedBy and CollectedBy is included of Type UserDto)
         public async Task<List<DonationDto>> GetDonationsByDonorIdAsync(int donorId)
         {
+            // var donation = await _context.Donations.Where(p => p.DonorId == donorId);
+
+            var donations = from donation in _context.Donations
+                                    where donation.DonorId == donorId
+                                    select donation;
+
+            if (donations == null) return null;
+
             return await DonationDtoFromDonation(await _context.Donations.Where(p => p.DonorId == donorId).ToListAsync());
         }
 

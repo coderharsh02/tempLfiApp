@@ -15,6 +15,10 @@ export class MembersService {
     return this.http.get<UserDetail[]>(this.baseUrl + 'users');
   }
 
+  getFullDetails() {
+    return this.http.get<any>(this.baseUrl + 'users/fullDetails');
+  }
+
   getMember(username: string | undefined) {
     return this.http.get<any>(this.baseUrl + 'users/fullDetails/username/' + username);
   }
